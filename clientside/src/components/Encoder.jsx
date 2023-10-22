@@ -1,38 +1,47 @@
+// src/components/Encoder.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import { textToMorse } from '../morse-code-api';
+import './Encoder.css'; // Import the CSS file for styling
 
 const Encoder = () => {
-  const [text, setText] = useState('');
-  const [encodedResult, setEncodedResult] = useState('');
+  const [inputText, setInputText] = useState('');
+  const [encodedText, setEncodedText] = useState('');
 
-  const handleEncode = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/encode', { text });
-      setEncodedResult(response.data.morseCode);
-    } catch (error) {
-      console.error('Error encoding Morse code:', error);
-    }
+  const handleEncode = () => {
+    const morseCode = textToMorse(inputText);
+    setEncodedText(morseCode);
+  };
+
+  const handleCopyToClipboard = () => {
+    const textArea = document.createElement('textarea');
+    textArea.value = encodedText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f0f8ff' }}>
-      <h2 style={{ color: '#3333cc' }}>Morse Code Encoder</h2>
+    <div className="encoder-container">
+      <h1>Morse Code Encoder</h1>
       <textarea
-        rows="4"
-        cols="50"
-        placeholder="Enter text to encode..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        style={{ margin: '10px', padding: '10px' }}
+        className="encoder-textarea"
+        placeholder="Enter text to encode"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
       />
-      <br />
-      <button onClick={handleEncode} style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+      <button className="encoder-button" onClick={handleEncode}>
         Encode
       </button>
-      <br />
-      <strong style={{ color: '#3333cc' }}>Encoded Result:</strong>
-      <p style={{ backgroundColor: '#e6f7ff', padding: '10px', borderRadius: '5px' }}>{encodedResult}</p>
+      <div className="result-container">
+        <p>Encoded Text:</p>
+        <p className="encoded-text">{encodedText}</p>
+        <button className="copy-button" onClick={handleCopyToClipboard}>
+          Copy to Clipboard
+        </button>
+      </div>
     </div>
   );
 };
+
 export default Encoder;
