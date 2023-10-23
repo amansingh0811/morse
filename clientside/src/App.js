@@ -9,8 +9,8 @@ const App = () => {
     <BrowserRouter>
      <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path="/encoder" element={<Encoder />} />
-        <Route path="/decoder" element={<Decoder />} />
+        <Route path="/Encode" element={<Encoder />} />
+        <Route path="/Decode" element={<Decoder />} />
         </Routes>
     </BrowserRouter>
   );

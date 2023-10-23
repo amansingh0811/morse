@@ -1,40 +1,48 @@
 body{
     background: url('../bg.jpg');
+    background-color: black;
     overflow: scroll;
     overflow-x: hidden;
     width: 100%;
-    /* height: 100vh; */
     background-repeat: no-repeat;
 }
 ::-webkit-scrollbar {
     display: none;
 }
 .Home{
-    /* background-color: #713ABE; */
     height: 100vh;
 }
+
+.glitch {
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.03em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+    0.015em 0.04em 0 #fffc00;
+  animation: glitch 1000ms linear;
+}
+
 .container{
     text-align: center;
     align-items: center;
-    /* width: auto; */
 }
 .heading
 {
-  padding-top: 80px;
     color: rgb(203, 192, 216);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 60px;
+    font-size: 2.5rem;
+}
+.upper-cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content-cont{
-
   border-radius: 20px;
-  margin-left: 110px;
-  margin-top: 60px;
-  margin-right: 50px;
-  padding-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 30px;
-  align-items: center;
   text-align: left;
   width: 80%;
   background-color: #232D3F;
@@ -44,21 +52,21 @@ body{
     letter-spacing: 1px;
     word-spacing: 3px;
     color: white;
-    font-size: large;
     font-style: italic;
     font-weight: 600;
     font-size: larger;
 }
-.typewriter h1 {
+.typewriter1
+{
     overflow: hidden; 
-    border-right: .15em solid orange;
+    border-right: .1em solid orange;
     white-space: nowrap; 
     margin: 0 auto; 
     letter-spacing: .10 em; 
     animation: 
       typing 3.5s steps(40, end),
       blink-caret .75s step-end infinite;
-  }
+}
   
   @keyframes typing {
     from { width: 0 }
@@ -76,11 +84,14 @@ body{
     padding-top: 40px;
     width: 100%;
     display: flex;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .container1
 {
-  width: 50%;
+   width: 50%;
     padding: 10px;
 }
 .container2
@@ -118,7 +129,7 @@ body{
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(80% -6px 5% 0);
   
-  content: '.-.---.';
+  content: 'COMMUNICATION';
   display: block;
   position: absolute;
   top: 0;
@@ -191,32 +202,16 @@ body{
   }
 }
 
-
-
-
-
-
-
-
-.glitch {
-  font-size: 4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  position: relative;
-  text-shadow: 0.03em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-    0.015em 0.04em 0 #fffc00;
-  animation: glitch 1000ms linear;
-}
-
-.glitch span {
-  position: absolute;
-  top: 0;
-  left: 0;
+@media (max-width: 760px)
+{
+  .heading{ font-size: 1.5rem;}
 }
 
 
+
+/* 
 .footer{
   width: auto;
   height: 200px;
   background-color: black;
-}
+} */

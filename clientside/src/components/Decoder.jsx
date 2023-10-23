@@ -1,7 +1,7 @@
 // src/components/Decoder.js
 import React, { useState } from 'react';
 import { morseToText } from '../morse-code-api';
-import './Decoder.css'; // Import the CSS file for styling
+import './Decoder.css'; 
 
 const Decoder = () => {
   const [inputMorse, setInputMorse] = useState('');
@@ -22,8 +22,16 @@ const Decoder = () => {
   };
 
   return (
+    <div>
+      <div className="decheading">
+            <p className="decglitch">
+            <div className="dectypewriter1">
+                <h1>Morse Code Decoder</h1>
+            </div>
+            </p>
+        </div>
     <div className="decoder-container">
-      <h1>Morse Code Decoder</h1>
+      <h1 className='enterdec'>Enter Morse Code</h1>
       <textarea
         className="decoder-textarea"
         placeholder="Enter Morse code to decode"
@@ -33,13 +41,14 @@ const Decoder = () => {
       <button className="decoder-button" onClick={handleDecode}>
         Decode
       </button>
+      <h1 className='enterdec'>Decoded Text : </h1>
       <div className="result-container">
-        <p>Decoded Text:</p>
         <p className="decoded-text">{decodedText}</p>
-        <button className="copy-button" onClick={handleCopyToClipboard}>
+      </div>
+      <button className="copy-button" onClick={handleCopyToClipboard}>
           Copy to Clipboard
         </button>
-      </div>
+    </div>
     </div>
   );
 };

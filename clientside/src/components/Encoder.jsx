@@ -1,7 +1,10 @@
 // src/components/Encoder.js
 import React, { useState } from 'react';
 import { textToMorse } from '../morse-code-api';
-import './Encoder.css'; // Import the CSS file for styling
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Encoder.css'; 
+
 
 const Encoder = () => {
   const [inputText, setInputText] = useState('');
@@ -12,6 +15,8 @@ const Encoder = () => {
     setEncodedText(morseCode);
   };
 
+
+
   const handleCopyToClipboard = () => {
     const textArea = document.createElement('textarea');
     textArea.value = encodedText;
@@ -19,11 +24,22 @@ const Encoder = () => {
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-  };
+    toast("Copied to Clipboard!");
 
+  };
+  
+  
   return (
+    <div>
+      <div className="enc-heading">
+            <p className="enc-glitch">
+            <div className="enc-typewriter1">
+                <h1>Morse Code Encoder</h1>
+            </div>
+            </p>
+        </div>
     <div className="encoder-container">
-      <h1>Morse Code Encoder</h1>
+      <h2 className='enter'>Enter Text</h2>
       <textarea
         className="encoder-textarea"
         placeholder="Enter text to encode"
@@ -33,13 +49,14 @@ const Encoder = () => {
       <button className="encoder-button" onClick={handleEncode}>
         Encode
       </button>
+      <h2 className='enter'>Encoded Text : </h2>
       <div className="result-container">
-        <p>Encoded Text:</p>
         <p className="encoded-text">{encodedText}</p>
-        <button className="copy-button" onClick={handleCopyToClipboard}>
-          Copy to Clipboard
-        </button>
       </div>
+      <button className="copy-button1" onClick={handleCopyToClipboard}>
+          Copy to Clipboard
+      </button>
+    </div>
     </div>
   );
 };

@@ -1,49 +1,106 @@
-/* src/components/Decoder.css */
+
+.decglitch {
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.03em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+    0.015em 0.04em 0 #fffc00;
+  animation: glitch 1000ms linear;
+}
+
+.decheading
+{
+    text-align: center;
+    color: rgb(203, 192, 216);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.dectypewriter1
+{
+    overflow: hidden; 
+    border-right: .1em solid orange;
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .10 em; 
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+  
+  
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
 .decoder-container {
-  max-width: 400px;
+  width: 60%;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  background-color: #232D3F;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  text-align: center;
-  font-size: 24px;
+.enterdec{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .decoder-textarea {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 6px;
+  margin: 5px 0;
+  border: 1px solid black;
+  text-transform: uppercase;
+  box-shadow: #232D3F;
+  border-radius: 10px;
 }
 
 .decoder-button {
   display: block;
   margin: 10px auto;
-  background-color: #0077cc;
-  color: #fff;
   padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+  outline: none;
   cursor: pointer;
+  font-size: 14px;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  box-shadow: inset 0 0 0 2px white;
+  background-color: transparent;
+  height: 48px;
 }
 
 .decoder-button:hover {
-  background-color: #0055aa;
+  background-color: black;
 }
 
 .result-container {
   text-align: center;
   margin-top: 20px;
   padding: 10px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
 .decoded-text {
@@ -51,15 +108,54 @@ h1 {
 }
 
 .copy-button {
-  background-color: #0077cc;
-  color: #fff;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 4px;
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  outline: none;
   cursor: pointer;
-  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 500px;
+  transition-property: background-color,border-color,color,box-shadow,filter;
+  transition-duration: .3s;
+  border: 1px solid white;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  box-shadow: inset 0 0 0 2px white;
+  background-color: transparent;
+  height: 48px;
 }
 
 .copy-button:hover {
-  background-color: #0055aa;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  box-shadow: inset 0 0 0 2px white;
+}
+
+@media (max-width: 760px)
+{
+  .decheading{ font-size: 1.5rem;}
+  .enterdec{
+    font-size: 20px;
+  }
+}
+@media (max-width: 600px)
+{
+  .decheading{ font-size: 1rem;}
+  .enterdec{
+    font-size: 15px;
+  }
+  .decoder-button,
+  .copy-button{
+    min-width: 60px;
+    font-size: 10px;
+    font-weight: 500;
+  box-shadow: inset 0 0 0 1px white;
+
+  }
 }

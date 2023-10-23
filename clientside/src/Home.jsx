@@ -1,20 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import './Home.css'
+
 function Home()
 {
+    const navigate=useNavigate();
+        function handleEncode()
+    {
+        navigate('./Encode');
+    }
+    function handleDecode()
+    {
+       navigate('./Decode');
+    }
    return (
     <div className="Home">
         <div className="container">
         <div className="heading">
             <p className="glitch">
-            <div className="typewriter">
+            <div className="typewriter1">
                 <h1>Morse-Coder</h1>
             </div>
             </p>
         </div>
+        <div className="upper-cont">
         <div className="content-cont">
         <div className="content">
-            <div className="typewriter">
+            <div className="typewriter1">
                 <h1>What is Morse Code?</h1>
             </div>
         Morse code is a method used in telecommunication to encode text characters as standardized sequences of 
@@ -31,9 +43,10 @@ function Home()
            code is also called Continental Morse Code.
         </div>
         </div>
+        </div>
         <div className="upper">
-        <div className="container1"><button className="btn">Encode.</button></div>
-        <div className="container2"><button className="btn">Decode.</button></div>
+        <div className="container1"><button className="btn" onClick={handleEncode}>Encode.</button></div>
+        <div className="container2"><button className="btn" onClick={handleDecode}>Decode.</button></div>
         </div>
         </div>
         <div className="footer"></div>
