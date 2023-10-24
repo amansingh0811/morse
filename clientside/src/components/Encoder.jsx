@@ -18,19 +18,20 @@ const Encoder = () => {
 
 
   const handleCopyToClipboard = () => {
+    toast("Copied to Clipboard!");
     const textArea = document.createElement('textarea');
     textArea.value = encodedText;
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    toast("Copied to Clipboard!");
 
   };
   
   
   return (
     <div>
+      <ToastContainer />
       <div className="enc-heading">
             <p className="enc-glitch">
             <div className="enc-typewriter1">

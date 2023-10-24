@@ -1,6 +1,8 @@
 // src/components/Decoder.js
 import React, { useState } from 'react';
 import { morseToText } from '../morse-code-api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Decoder.css'; 
 
 const Decoder = () => {
@@ -13,6 +15,7 @@ const Decoder = () => {
   };
 
   const handleCopyToClipboard = () => {
+    toast("Copied to Clipboard!");
     const textArea = document.createElement('textarea');
     textArea.value = decodedText;
     document.body.appendChild(textArea);
@@ -23,6 +26,7 @@ const Decoder = () => {
 
   return (
     <div>
+      <ToastContainer />
       <div className="decheading">
             <p className="decglitch">
             <div className="dectypewriter1">
